@@ -36,4 +36,4 @@ assemblyExcludedJars in assembly := {
   cp filter {_.data.getName contains  "scoverage"}
 }
 
-coverageEnabled := true
+//coverageEnabled := true
