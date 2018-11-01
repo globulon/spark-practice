@@ -29,7 +29,7 @@ resolvers ++= Seq(
   Resolver.sonatypeRepo("releases")
 )
 
-assemblyJarName in assembly := "first-sample.jar"
+assemblyJarName in assembly := "demo.jar"
 assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
 assemblyExcludedJars in assembly := {
   val cp = (fullClasspath in assembly).value

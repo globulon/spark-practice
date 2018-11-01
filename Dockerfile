@@ -70,4 +70,4 @@ RUN curl -sL --retry 3 \
  && chown -R root:root $SPARK_HOME
 
 WORKDIR $SPARK_HOME
-CMD ["bin/spark-class", "org.apache.spark.deploy.master.Master"]
+#CMD ["bin/spark-class", "org.apache.spark.deploy.master.Master"]

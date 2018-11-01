@@ -1,9 +1,6 @@
 package com.omd.spark.practice
 
-import org.apache.spark.sql.SparkSession
-import scalaz.syntax.std.boolean._
-
-object FirstApp {
+object FirstApp extends SparkTools with IOs {
 
   def main(args: Array[String]): Unit = {
     withFile(args) { file ⇒
@@ -16,19 +13,4 @@ object FirstApp {
     }
   }
 
-  private def withSession[A](name: String)(f: SparkSession ⇒ A):A = {
-    val spark = SparkSession.builder.appName(name).getOrCreate()
-    try {
-      f(spark)
-    } finally {
-      spark.stop()
-    }
-  }
-
-  private def withFile(from: Array[String])(f: String ⇒ Unit): Unit = file(from) match {
-    case Some(file) ⇒ f(file)
-    case None       ⇒ System.err.println(s"""file [${from.mkString(",")}] not found""")
-  }
-
-  private def file(from: Array[String]): Option[String] = (from.length > 0).option(from(0))
 }
