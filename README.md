@@ -8,9 +8,13 @@
 
 ## runs
 ```
-./submit_local.sh FirstApp README.md
+./submit_cluster.sh FirstApp README.md
 ```
 
 ```
-./submit_local.sh SQLExample people.json
+./submit_cluster.sh SQLExample people.json
+```
+
+```
+./submit_cluster.sh CopyToDb authors.csv
 ```

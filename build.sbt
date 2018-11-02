@@ -16,6 +16,7 @@ scalacOptions ++= Seq(
 libraryDependencies ++= Seq(
   "org.scalaz" %% "scalaz-core" % "7.2.26" withSources(),
   "org.apache.spark" %% "spark-sql" % "2.3.2" % Provided withSources() ,
+  "org.postgresql" % "postgresql" % "42.1.4" withSources(),
   "org.scalactic" %% "scalactic" % "3.0.5" % Test withSources() ,
   "org.scalatest" %% "scalatest" % "3.0.5" % Test  withSources()
 )

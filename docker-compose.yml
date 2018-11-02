@@ -8,6 +8,8 @@ services:
       MASTER: spark://master:7077
       SPARK_CONF_DIR: /conf
       SPARK_PUBLIC_DNS: localhost
+    links:
+      - db
     expose:
       - 7001
       - 7002
@@ -51,3 +53,18 @@ services:
       - ./conf/worker:/conf
       - ./spark/data:/tmp/data
       - ./spark/archives:/tmp/archives
+
+  db:
+    image: postgres
+    restart: always
+    hostname: db
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+    ports:
+    - "5432:5432"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+    - "8888:8080"
